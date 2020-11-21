@@ -20,19 +20,19 @@ public class BlogPostController {
 	@Autowired
 	private BlogPostRepository blogPostRepository;
 
-	private List<BlogPost> posts = new ArrayList<>();
+	private List<FoodPost> posts = new ArrayList<>();
 
 	// localhost:8080
 	// Handle get request to forward slash
 	@GetMapping(value = "/")
-	public String index(BlogPost blogPost, Model model) {
+	public String index(FoodPost blogPost, Model model) {
 		// Remove all current posts inside of the arraylist called posts, from line 22
 		posts.removeAll(posts);
 
 		// This for each loop goes over the entire repository(all blog posts), and for
 		// each one it adds them
 		// to the posts array list
-		for (BlogPost postFromDB : blogPostRepository.findAll()) {
+		for (FoodPost postFromDB : blogPostRepository.findAll()) {
 			posts.add(postFromDB);
 		}
 
@@ -43,12 +43,12 @@ public class BlogPostController {
 	}
 
 	@GetMapping(value = "/blogpost/new")
-	public String newBlog(BlogPost blogPost) {
+	public String newBlog(FoodPost blogPost) {
 		return "blogpost/new";
 	}
 
 	@PostMapping(value = "/blogpost")
-	public String addNewBlogPost(BlogPost blogPost, Model model) {
+	public String addNewBlogPost(FoodPost blogPost, Model model) {
 		// We do not want to create a new instance everytime,
 		// instead we can pass in the blogPost as is.
 		// Springboot is doing the hard work for us in the background
@@ -61,12 +61,12 @@ public class BlogPostController {
 	}
 
 	@PostMapping(value = "/blogpost/update/{id}")
-	public String updateExistingPost(@PathVariable Long id, BlogPost blogPost, Model model) {
-		Optional<BlogPost> post = blogPostRepository.findById(id);
+	public String updateExistingPost(@PathVariable Long id, FoodPost blogPost, Model model) {
+		Optional<FoodPost> post = blogPostRepository.findById(id);
 
 		if (post.isPresent()) {
 			// Created a
-			BlogPost actualPost = post.get();
+			FoodPost actualPost = post.get();
 
 			actualPost.setTitle(blogPost.getTitle());
 			actualPost.setAuthor(blogPost.getAuthor());
@@ -85,7 +85,7 @@ public class BlogPostController {
 	}
 
 	@RequestMapping(value = "/blogpost/delete/{id}")
-	public String deletePostWithId(@PathVariable Long id, BlogPost blogPost) {
+	public String deletePostWithId(@PathVariable Long id, FoodPost blogPost) {
 		// Takes id from the URL path, passes it into deleteById from the CRUD
 		// repository
 		blogPostRepository.deleteById(id);
@@ -99,10 +99,10 @@ public class BlogPostController {
 		// Use blogPostRepo to find post by id
 		// It returns an Optional<T>
 		// Use a variable to store the the blogPost if its there
-		Optional<BlogPost> editPost = blogPostRepository.findById(id);
+		Optional<FoodPost> editPost = blogPostRepository.findById(id);
 
 		// Initalize a variable to be filled by the post if it exists
-		BlogPost result;
+		FoodPost result;
 
 		// use Optional method, to check if the post came through
 		if (editPost.isPresent()) {
