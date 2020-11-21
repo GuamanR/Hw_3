@@ -15,8 +15,8 @@
       <!-- Saving is directed to /blogpost -->
       <form
         action="#"
-        th:action="@{/blogpost/update/{id}(id=${blogPost.id})}"
-        th:object="${blogPost}"
+        th:action="@{/foodtracker/update/{id}(id=${foodPost.id})}"
+        th:object="${foodPost}"
         method="post"
       >
         <div class="form-group">
@@ -29,7 +29,7 @@
 
           <input type="text" class="form-control mb-3" placeholder="Your Name Here..." th:field="*{author}" />
 
-          <input type="text" class="form-control mb-3" placeholder="Blog Entry..." th:field="*{blogEntry}" />
+          <input type="text" class="form-control mb-3" placeholder="Blog Entry..." th:field="*{foodNote}" />
 
           <button type="Submit" class="btn btn-primary">Submit Post</button>
 

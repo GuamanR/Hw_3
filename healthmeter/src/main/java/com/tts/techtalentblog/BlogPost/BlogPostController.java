@@ -39,15 +39,15 @@ public class BlogPostController {
 		// this line makes the posts array list available to the webpage to be viewed
 		model.addAttribute("posts", posts);
 
-		return "blogpost/index";
+		return "foodtracker/index";
 	}
 
-	@GetMapping(value = "/blogpost/new")
+	@GetMapping(value = "/foodtracker/new")
 	public String newFood(FoodPost foodNote) {
-		return "blogpost/new";
+		return "foodtracker/new";
 	}
 
-	@PostMapping(value = "/blogpost")
+	@PostMapping(value = "/foodtracker")
 	public String addNewFoodPost(FoodPost foodNote, Model model) {
 		// We do not want to create a new instance everytime,
 		// instead we can pass in the foodNote as is.
@@ -57,10 +57,10 @@ public class BlogPostController {
 		model.addAttribute("title", foodNote.getTitle());
 		model.addAttribute("author", foodNote.getAuthor());
 		model.addAttribute("foodNote", foodNote.getFoodNote());
-		return "blogpost/result";
+		return "foodtracker/result";
 	}
 
-	@PostMapping(value = "/blogpost/update/{id}")
+	@PostMapping(value = "/foodtracker/update/{id}")
 	public String updateExistingPost(@PathVariable Long id, FoodPost foodNote, Model model) {
 		Optional<FoodPost> post = foodPostRepository.findById(id);
 
@@ -80,21 +80,21 @@ public class BlogPostController {
 			// Handle the error here
 		}
 
-		return "blogpost/result";
+		return "foodtracker/result";
 
 	}
 
-	@RequestMapping(value = "/blogpost/delete/{id}")
+	@RequestMapping(value = "/foodtracker/delete/{id}")
 	public String deletePostWithId(@PathVariable Long id, FoodPost foodNote) {
 		// Takes id from the URL path, passes it into deleteById from the CRUD
 		// repository
 		foodPostRepository.deleteById(id);
 
-		return "blogpost/delete";
+		return "foodtracker/delete";
 	}
 
 	// This is the mapping to edit a specific post
-	@RequestMapping(value = "/blogpost/edit/{id}")
+	@RequestMapping(value = "/foodtracker/edit/{id}")
 	public String editPostWithId(@PathVariable Long id, Model model) {
 		// Use blogPostRepo to find post by id
 		// It returns an Optional<T>
@@ -116,7 +116,7 @@ public class BlogPostController {
 		}
 
 		// Show browser the blogpost/edit page
-		return "blogpost/edit";
+		return "foodtracker/edit";
 	}
 
 }
