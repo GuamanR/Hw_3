@@ -18,21 +18,21 @@ import org.springframework.web.bind.annotation.RequestMethod;
 public class BlogPostController {
 
 	@Autowired
-	private BlogPostRepository blogPostRepository;
+	private FoodPostRepository foodPostRepository;
 
 	private List<FoodPost> posts = new ArrayList<>();
 
 	// localhost:8080
 	// Handle get request to forward slash
 	@GetMapping(value = "/")
-	public String index(FoodPost blogPost, Model model) {
+	public String index(FoodPost foodNote, Model model) {
 		// Remove all current posts inside of the arraylist called posts, from line 22
 		posts.removeAll(posts);
 
 		// This for each loop goes over the entire repository(all blog posts), and for
 		// each one it adds them
 		// to the posts array list
-		for (FoodPost postFromDB : blogPostRepository.findAll()) {
+		for (FoodPost postFromDB : foodPostRepository.findAll()) {
 			posts.add(postFromDB);
 		}
 
@@ -43,38 +43,38 @@ public class BlogPostController {
 	}
 
 	@GetMapping(value = "/blogpost/new")
-	public String newBlog(FoodPost blogPost) {
+	public String newFood(FoodPost foodNote) {
 		return "blogpost/new";
 	}
 
 	@PostMapping(value = "/blogpost")
-	public String addNewBlogPost(FoodPost blogPost, Model model) {
+	public String addNewFoodPost(FoodPost foodNote, Model model) {
 		// We do not want to create a new instance everytime,
-		// instead we can pass in the blogPost as is.
+		// instead we can pass in the foodNote as is.
 		// Springboot is doing the hard work for us in the background
-		blogPostRepository.save(blogPost);
+		foodPostRepository.save(foodNote);
 
-		model.addAttribute("title", blogPost.getTitle());
-		model.addAttribute("author", blogPost.getAuthor());
-		model.addAttribute("blogEntry", blogPost.getBlogEntry());
+		model.addAttribute("title", foodNote.getTitle());
+		model.addAttribute("author", foodNote.getAuthor());
+		model.addAttribute("foodNote", foodNote.getFoodNote());
 		return "blogpost/result";
 	}
 
 	@PostMapping(value = "/blogpost/update/{id}")
-	public String updateExistingPost(@PathVariable Long id, FoodPost blogPost, Model model) {
-		Optional<FoodPost> post = blogPostRepository.findById(id);
+	public String updateExistingPost(@PathVariable Long id, FoodPost foodNote, Model model) {
+		Optional<FoodPost> post = foodPostRepository.findById(id);
 
 		if (post.isPresent()) {
 			// Created a
 			FoodPost actualPost = post.get();
 
-			actualPost.setTitle(blogPost.getTitle());
-			actualPost.setAuthor(blogPost.getAuthor());
-			actualPost.setBlogEntry(blogPost.getBlogEntry());
+			actualPost.setTitle(foodNote.getTitle());
+			actualPost.setAuthor(foodNote.getAuthor());
+			actualPost.setFoodNote(foodNote.getFoodNote());
 
-			blogPostRepository.save(actualPost);
+			foodPostRepository.save(actualPost);
 
-			model.addAttribute("blogPost", actualPost);
+			model.addAttribute("foodNote", actualPost);
 
 		} else {
 			// Handle the error here
@@ -85,10 +85,10 @@ public class BlogPostController {
 	}
 
 	@RequestMapping(value = "/blogpost/delete/{id}")
-	public String deletePostWithId(@PathVariable Long id, FoodPost blogPost) {
+	public String deletePostWithId(@PathVariable Long id, FoodPost foodNote) {
 		// Takes id from the URL path, passes it into deleteById from the CRUD
 		// repository
-		blogPostRepository.deleteById(id);
+		foodPostRepository.deleteById(id);
 
 		return "blogpost/delete";
 	}
@@ -98,8 +98,8 @@ public class BlogPostController {
 	public String editPostWithId(@PathVariable Long id, Model model) {
 		// Use blogPostRepo to find post by id
 		// It returns an Optional<T>
-		// Use a variable to store the the blogPost if its there
-		Optional<FoodPost> editPost = blogPostRepository.findById(id);
+		// Use a variable to store the the foodNote if its there
+		Optional<FoodPost> editPost = foodPostRepository.findById(id);
 
 		// Initalize a variable to be filled by the post if it exists
 		FoodPost result;
@@ -109,7 +109,7 @@ public class BlogPostController {
 			// if the post came through, store it in result
 			result = editPost.get();
 			// add attribute to page, accessible through model
-			model.addAttribute("blogPost", result);
+			model.addAttribute("foodNote", result);
 		} else {
 			// Need to handle error here, you could use a html error page
 			return "Error";

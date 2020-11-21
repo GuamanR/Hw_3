@@ -14,15 +14,15 @@ public class FoodPost {
 
 	private String title;
 	private String author;
-	private String blogEntry;
+	private String foodNote;
 
 	public FoodPost() {
 	}
 
-	public FoodPost(String title, String author, String blogEntry) {
+	public FoodPost(String title, String author, String foodNote) {
 		this.title = title;
 		this.author = author;
-		this.blogEntry = blogEntry;
+		this.foodNote = foodNote;
 	}
 
 	public Long getId() {
@@ -45,18 +45,22 @@ public class FoodPost {
 		this.author = author;
 	}
 
-	public String getBlogEntry() {
-		return blogEntry;
+
+	public String getFoodNote() {
+		return foodNote;
 	}
 
-	public void setBlogEntry(String blogEntry) {
-		this.blogEntry = blogEntry;
+	public void setFoodNote(String foodNote) {
+		this.foodNote = foodNote;
 	}
 
 	@Override
 	public String toString() {
-		return "FoodPost [author=" + author + ", blogEntry=" + blogEntry + ", id=" + id + ", title=" + title + "]";
+		return "FoodPost [author=" + author + ", foodNote=" + foodNote + ", id=" + id + ", title=" + title + "]";
 	}
+	
+
+	
 
 	
 
