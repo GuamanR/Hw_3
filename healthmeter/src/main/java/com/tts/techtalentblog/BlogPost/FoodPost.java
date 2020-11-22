@@ -13,21 +13,18 @@ public class FoodPost {
 	private Long id;
 
 	private String title;
-	private String author;
-	private String foodNote;
-
-	public FoodPost() {
-	}
-
-	public FoodPost(String title, String author, String foodNote) {
-		this.title = title;
-		this.author = author;
-		this.foodNote = foodNote;
-	}
+	private String author; 
+	// make sure to change author to calories
+	private int foodNote ;
+	// make sure to change foodNote to protein
+	private double sugars;
+	private double carbohydrates;
+	private double fat;
 
 	public Long getId() {
 		return id;
 	}
+
 
 	public String getTitle() {
 		return title;
@@ -45,19 +42,60 @@ public class FoodPost {
 		this.author = author;
 	}
 
-
-	public String getFoodNote() {
+	public int getFoodNote() {
 		return foodNote;
 	}
 
-	public void setFoodNote(String foodNote) {
+	public void setFoodNote(int foodNote) {
 		this.foodNote = foodNote;
+	}
+
+	public double getSugars() {
+		return sugars;
+	}
+
+	public void setSugars(double sugars) {
+		this.sugars = sugars;
+	}
+
+	public double getCarbohydrates() {
+		return carbohydrates;
+	}
+
+	public void setCarbohydrates(double carbohydrates) {
+		this.carbohydrates = carbohydrates;
+	}
+
+	public double getFat() {
+		return fat;
+	}
+
+	public void setFat(double fat) {
+		this.fat = fat;
+	}
+
+	public FoodPost() {
+	}
+
+	public FoodPost(Long id, String title, String author, int foodNote, double sugars, double carbohydrates,
+			double fat) {
+		this.id = id;
+		this.title = title;
+		this.author = author;
+		this.foodNote = foodNote;
+		this.sugars = sugars;
+		this.carbohydrates = carbohydrates;
+		this.fat = fat;
 	}
 
 	@Override
 	public String toString() {
-		return "FoodPost [author=" + author + ", foodNote=" + foodNote + ", id=" + id + ", title=" + title + "]";
+		return "FoodPost [author=" + author + ", carbohydrates=" + carbohydrates + ", fat=" + fat + ", foodNote="
+				+ foodNote + ", id=" + id + ", sugars=" + sugars + ", title=" + title + "]";
 	}
+
+	
+	
 	
 
 	

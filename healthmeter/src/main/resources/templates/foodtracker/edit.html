@@ -15,21 +15,25 @@
       <!-- Saving is directed to /blogpost -->
       <form
         action="#"
-        th:action="@{/foodtracker/update/{id}(id=${foodPost.id})}"
+        th:action="@{/foodtracker/update/{id}(id=${foodNote.id})}"
         th:object="${foodPost}"
         method="post"
       >
+      <!-- review this part so that the edit function works -->
         <div class="form-group">
           <!-- Adding in hidden id attribute, if it is included -->
           <!-- The repositorys .save method will automatically override -->
 					<input type="hidden" th:field="*{id}" />
 
           <!-- The placeholders will show up if the th:field is empty -->
-          <input type="text" class="form-control mb-3" placeholder="Blog Title..."th:field="*{title}" />
+          <input type="text" class="form-control mb-3" placeholder="Name of Food"th:field="*{title}" />
 
-          <input type="text" class="form-control mb-3" placeholder="Your Name Here..." th:field="*{author}" />
+          <input type="text" class="form-control mb-3" placeholder="Calories per serving" th:field="*{author}" />
 
-          <input type="text" class="form-control mb-3" placeholder="Blog Entry..." th:field="*{foodNote}" />
+          <input type="text" class="form-control mb-3" placeholder="Grams of protein per serving" th:field="*{foodNote}" />
+          <input type="text" class="form-control mb-3" placeholder="Grams of sugar per serving" th:field="*{sugars}" />
+          <input type="text" class="form-control mb-3" placeholder="Grams of carbohydrate per serving" th:field="*{carbohydrates}" />
+          <input type="text" class="form-control mb-3" placeholder="Grams of fat per serving" th:field="*{fat}" />
 
           <button type="Submit" class="btn btn-primary">Submit Post</button>
 

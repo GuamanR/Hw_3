@@ -57,6 +57,9 @@ public class BlogPostController {
 		model.addAttribute("title", foodNote.getTitle());
 		model.addAttribute("author", foodNote.getAuthor());
 		model.addAttribute("foodNote", foodNote.getFoodNote());
+		model.addAttribute("sugars", foodNote.getSugars());
+		model.addAttribute("carbohydrates", foodNote.getCarbohydrates());
+		model.addAttribute("fat", foodNote.getFat());
 		return "foodtracker/result";
 	}
 
@@ -71,6 +74,9 @@ public class BlogPostController {
 			actualPost.setTitle(foodNote.getTitle());
 			actualPost.setAuthor(foodNote.getAuthor());
 			actualPost.setFoodNote(foodNote.getFoodNote());
+			actualPost.setSugars(foodNote.getSugars());
+			actualPost.setCarbohydrates(foodNote.getCarbohydrates());
+			actualPost.setFat(foodNote.getFat());
 
 			foodPostRepository.save(actualPost);
 

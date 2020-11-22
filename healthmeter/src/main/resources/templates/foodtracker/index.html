@@ -12,9 +12,9 @@
     
     
     <div class="container">
-      <h1>Welcome to the new you!</h1>
+      <h1>Welcome to your personalized health monitor!</h1>
       <div th:replace="fragments/navbar :: navbar"></div>
-      <h3 class="mt-3">Check out our blogs!</h3>
+      <h3 class="mt-3">Below are your saved meals</h3>
 
       <div class="row d-flex justify-content-around">
 
@@ -26,21 +26,41 @@
 
             <div class="card-body">
 
-              <p class="card-text" th:text="${food.foodNote}"></p>
+              <p>Calories</p>
               <p class="card-text" th:text="${food.author}"></p>
+              <p>Grams of Protein</p>
+              <p class="card-text" th:text="${food.foodNote}"></p>
+              <p>Grams of Sugar</p>
+              <p class="card-text" th:text="${food.sugars}"></p>
+              <p>Grams of Carbohydrates</p>
+              <p class="card-text" th:text="${food.carbohydrates}"></p>
+              <p>Grams of Fat</p>
+              <p class="card-text" th:text="${food.fat}"></p>
+              <!-- make sure to change css to allow in line text -->
 
             </div>
 
             <div class="card-footer">
                 <div class="form-group">
 
-                  <a href="#" th:href="@{foodtracker/edit/{id}(id=${food.id})}" class="card-line btn btn-info">Edit Post</a>
+                  <a href="#" th:href="@{foodtracker/edit/{id}(id=${food.id})}" class="card-line btn btn-info">Edit</a>
                   
                   <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal">
-                    Delete Post
+                    Delete
                   </button>
                   
                 </div>
+                <div class="form-group">
+                <button type="button" class="btn btn-primary" >
+                  +
+                </button>
+                <button type="button" class="btn" >
+                  0
+                </button>
+                <button type="button" class="btn btn-primary" >
+                  -
+                </button>
+              </div>
               </form>
             </div>
           </div>
@@ -56,8 +76,17 @@
                     </button>
                   </div>
                   <div class="modal-body">
-                   <h3 class="card-text" th:text="${food.author}"></h3>
-                  <p class="card-text" th:text="${food.FoodNote}"></p>
+                   <h3 class="card-text" th:text="${food.title}"></h3>
+                   <p>Calories</p>
+                   <p class="card-text" th:text="${food.author}"></p>
+                   <p>Grams of Protein</p>
+                   <p class="card-text" th:text="${food.foodNote}"></p>
+                   <p>Grams of Sugar</p>
+                   <p class="card-text" th:text="${food.sugars}"></p>
+                   <p>Grams of Carbohydrates</p>
+                   <p class="card-text" th:text="${food.carbohydrates}"></p>
+                   <p>Grams of Fat</p>
+                   <p class="card-text" th:text="${food.fat}"></p>
                     
                   </div>
                   <div class="modal-footer">

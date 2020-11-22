@@ -11,7 +11,7 @@
     <div th:replace="fragments/navbar :: navbar"></div>
 
     <div class="container">
-      <h1>Create a New Blog Post</h1>
+      <h1>Create a New Food Post</h1>
       <!-- This form can handle new posts, or updating old posts -->
       <!-- Saving is directed to /blogpost -->
       <form
@@ -26,11 +26,17 @@
 					<input type="hidden" th:field="*{id}" />
 
           <!-- The placeholders will show up if the th:field is empty -->
-          <input type="text" class="form-control mb-3" placeholder="Blog Title..."th:field="*{title}" />
+          <input type="text" class="form-control mb-3" placeholder="Name of Food"th:field="*{title}" />
 
-          <input type="text" class="form-control mb-3" placeholder="Your Name Here..." th:field="*{author}" />
+          <input type="number" class="form-control mb-3" placeholder="Calories per serving" th:field="*{author}" />
 
-          <input type="text" class="form-control mb-3" placeholder="Blog Entry..." th:field="*{foodNote}" />
+          <input type="number" class="form-control mb-3" placeholder="Grams of protein per serving" th:field="*{foodNote}" />
+          <input type="number" class="form-control mb-3" placeholder="Grams of sugar per serving" th:field="*{sugars}" />
+          <input type="number" class="form-control mb-3" placeholder="Grams of carbohydrate per serving" th:field="*{carbohydrates}" />
+          <input type="number" class="form-control mb-3" placeholder="Grams of fat per serving" th:field="*{fat}" />
+
+          <!-- Here we will add more once the other logistics are set up to support the other information -->
+          <!-- This will include sugars, carbohydrates, fat,  -->
 
           <button type="Submit" class="btn btn-primary">Submit Post</button>
 
