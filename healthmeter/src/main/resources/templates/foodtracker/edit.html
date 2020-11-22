@@ -10,13 +10,13 @@
     <div th:replace="fragments/navbar :: navbar"></div>
 
     <div class="container">
-      <h1>Create a New Blog Post</h1>
+      <h1>Edit Your Existing Note</h1>
       <!-- This form can handle new posts, or updating old posts -->
       <!-- Saving is directed to /blogpost -->
       <form
         action="#"
         th:action="@{/foodtracker/update/{id}(id=${foodNote.id})}"
-        th:object="${foodPost}"
+        th:object="${foodNote}"
         method="post"
       >
       <!-- review this part so that the edit function works -->

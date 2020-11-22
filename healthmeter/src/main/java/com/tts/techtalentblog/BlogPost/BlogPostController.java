@@ -95,7 +95,6 @@ public class BlogPostController {
 		// Takes id from the URL path, passes it into deleteById from the CRUD
 		// repository
 		foodPostRepository.deleteById(id);
-
 		return "foodtracker/delete";
 	}
 
