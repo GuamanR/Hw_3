@@ -25,17 +25,18 @@
             <h4 class="card-header" th:text="${food.title}"></h4>
 
             <div class="card-body">
-
-              <p>Calories</p>
-              <p class="card-text" th:text="${food.author}"></p>
-              <p>Grams of Protein</p>
-              <p class="card-text" th:text="${food.foodNote}"></p>
-              <p>Grams of Sugar</p>
-              <p class="card-text" th:text="${food.sugars}"></p>
-              <p>Grams of Carbohydrates</p>
-              <p class="card-text" th:text="${food.carbohydrates}"></p>
-              <p>Grams of Fat</p>
-              <p class="card-text" th:text="${food.fat}"></p>
+              
+              <p class="card-text meal-card" th:text="${food.author}"></p>
+              <p class="card-text meal-card card-left">Calories</p><br>
+              <p class="card-text meal-card" th:text="${food.foodNote}"></p>
+              <p class="card-text meal-card card-left">Grams of Protein</p><br>
+              <p class="card-text meal-card" th:text="${food.sugars}"></p>
+              <p class="card-text meal-card card-left">Grams of Sugar</p><br>
+              <p class="card-text meal-card" th:text="${food.carbohydrates}"></p>
+              <p class="card-text meal-card card-left">Grams of Carbs</p><br>
+              <p class="card-text meal-card" th:text="${food.fat}"></p>
+              <p class="card-text meal-card card-left">Grams of Fat</p><br>
+              
               <!-- make sure to change css to allow in line text -->
 
             </div>
