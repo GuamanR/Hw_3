@@ -134,5 +134,5 @@ public class HealthmeterController {
 		return foodPostRepository;
 	}
 
-
+	
 }

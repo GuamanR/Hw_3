@@ -13,13 +13,13 @@ public class FoodPost {
 	private Long id;
 
 	private String title;
-	private String author; 
+	private Double author; 
 	// make sure to change author to calories
-	private String foodNote ;
+	private Double foodNote ;
 	// make sure to change foodNote to protein
-	private String sugars;
-	private String carbohydrates;
-	private String fat;
+	private Double sugars;
+	private Double carbohydrates;
+	private Double fat;
 
 	public Long getId() {
 		return id;
@@ -34,48 +34,48 @@ public class FoodPost {
 		this.title = title;
 	}
 
-	public String getAuthor() {
+	public Double getAuthor() {
 		return author;
 	}
 
-	public void setAuthor(String author) {
+	public void setAuthor(Double author) {
 		this.author = author;
 	}
 
-	public String getFoodNote() {
+	public Double getFoodNote() {
 		return foodNote;
 	}
 
-	public void setFoodNote(String foodNote) {
+	public void setFoodNote(Double foodNote) {
 		this.foodNote = foodNote;
 	}
 
-	public String getSugars() {
+	public Double getSugars() {
 		return sugars;
 	}
 
-	public void setSugars(String sugars) {
+	public void setSugars(Double sugars) {
 		this.sugars = sugars;
 	}
 
-	public String getCarbohydrates() {
+	public Double getCarbohydrates() {
 		return carbohydrates;
 	}
 
-	public void setCarbohydrates(String carbohydrates) {
+	public void setCarbohydrates(Double carbohydrates) {
 		this.carbohydrates = carbohydrates;
 	}
 
-	public String getFat() {
+	public Double getFat() {
 		return fat;
 	}
 
-	public void setFat(String fat) {
+	public void setFat(Double fat) {
 		this.fat = fat;
 	}
 
-	public FoodPost(Long id, String title, String author, String foodNote, String sugars, String carbohydrates,
-			String fat) {
+	public FoodPost(Long id, String title, Double author, Double foodNote, Double sugars, Double carbohydrates,
+			Double fat) {
 		this.id = id;
 		this.title = title;
 		this.author = author;
