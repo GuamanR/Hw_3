@@ -20,6 +20,7 @@ public class FoodPost {
 	private Double sugars;
 	private Double carbohydrates;
 	private Double fat;
+	
 
 	public Long getId() {
 		return id;
@@ -94,6 +95,7 @@ public class FoodPost {
 
 	public FoodPost() {
 	}
+
 
 	
 	

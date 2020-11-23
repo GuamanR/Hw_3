@@ -134,5 +134,28 @@ public class HealthmeterController {
 		return foodPostRepository;
 	}
 
-	
+	@PostMapping(value = "/foodtracker/calculate/{id}")
+	public String calculateExistingPost(@PathVariable Long id, FoodPost foodNote, Model model) {
+		Optional<FoodPost> post = foodPostRepository.findById(id);
+
+		if (post.isPresent()) {
+			// Created a
+			FoodPost actualPost = post.get();
+
+			actualPost.setTitle(foodNote.getTitle());
+			actualPost.setAuthor(foodNote.getAuthor());
+			actualPost.setFoodNote(foodNote.getFoodNote());
+			actualPost.setSugars(foodNote.getSugars());
+			actualPost.setCarbohydrates(foodNote.getCarbohydrates());
+			actualPost.setFat(foodNote.getFat());
+				
+			;
+
+		} else {
+			// Handle the error here
+		}
+
+		return "foodtracker/result";
+
+	}
 }
