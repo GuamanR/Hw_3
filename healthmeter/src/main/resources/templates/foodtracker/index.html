@@ -15,6 +15,8 @@
       <h1>Welcome to your personalized health monitor!</h1>
       <div th:replace="fragments/navbar :: navbar"></div>
       <h3 class="mt-3">Below are your saved meals</h3>
+      
+      <a type="Submit" class="btn btn-primary" th:href="@{foodtracker/calculation}">Calculate</a>
 
       <div class="row d-flex justify-content-around">
 
@@ -52,15 +54,10 @@
                   
                 </div>
                 <div class="form-group">
-                <button type="button" class="btn btn-primary" >
-                  +
-                </button>
-                <button type="button" class="btn" >
-                  0
-                </button>
-                <button type="button" class="btn btn-primary" >
-                  -
-                </button>
+                <div style= "display: inline;">
+                    <label for="">How Many Servings?</label>
+                    <input type="number" name="" id="" value="0" min="0">
+                </div>
               </div>
               </form>
             </div>

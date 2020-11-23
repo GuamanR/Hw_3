@@ -46,6 +46,10 @@ public class BlogPostController {
 	public String newFood(FoodPost foodNote) {
 		return "foodtracker/new";
 	}
+	@GetMapping(value = "/foodtracker/calculation")
+	public String newDay(FoodPost foodNote) {
+		return "foodtracker/calculation";
+	}
 
 	@PostMapping(value = "/foodtracker")
 	public String addNewFoodPost(FoodPost foodNote, Model model) {
