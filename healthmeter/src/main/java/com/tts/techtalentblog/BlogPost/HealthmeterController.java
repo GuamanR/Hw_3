@@ -15,10 +15,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
-public class BlogPostController {
+public class HealthmeterController {
 
 	@Autowired
 	private FoodPostRepository foodPostRepository;
+
+	
 
 	private List<FoodPost> posts = new ArrayList<>();
 
@@ -47,7 +49,7 @@ public class BlogPostController {
 		return "foodtracker/new";
 	}
 	@GetMapping(value = "/foodtracker/calculation")
-	public String newDay(FoodPost foodNote) {
+	public String newCalculation(FoodPost foodNote) {
 		return "foodtracker/calculation";
 	}
 
@@ -127,5 +129,10 @@ public class BlogPostController {
 		// Show browser the blogpost/edit page
 		return "foodtracker/edit";
 	}
+
+	public FoodPostRepository getFoodPostRepository() {
+		return foodPostRepository;
+	}
+
 
 }
